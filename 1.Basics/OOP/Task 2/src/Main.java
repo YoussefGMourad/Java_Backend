@@ -57,7 +57,7 @@ public class Main {
 
 
         System.out.println("_____________________________________________________");
-
+// Problem 6
         PrivateSchoolStudent std = new PrivateSchoolStudent(12,"Youssef");
         std.printInfo();
         publicSchoolStudent std1 = new publicSchoolStudent(14,"Ahmed");
