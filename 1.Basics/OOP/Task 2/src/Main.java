@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Player player= new Player();
+      //  PlayerP5 player= new PlayerP5();
 
          Scanner input = new Scanner(System.in);
 
@@ -12,12 +12,12 @@ public class Main {
 
         //        problem number 2 V 2.1
 
-        System.out.println("Please enter the player name :");
-        player.setPlayerName(input.next());
-        System.out.println("Please enter the player number :");
-        player.setPlayerNumber(input.nextInt());
-
-        player.printPlayerInfo();
+//        System.out.println("Please enter the player name :");
+//        player.setPlayerName(input.next());
+//        System.out.println("Please enter the player number :");
+//        player.setPlayerNumber(input.nextInt());
+//
+//        player.printPlayerInfo();
 
         System.out.println("_____________________________________________________");
 
@@ -58,8 +58,10 @@ public class Main {
 
         System.out.println("_____________________________________________________");
 
-
-
+        PrivateSchoolStudent std = new PrivateSchoolStudent(12,"Youssef");
+        std.printInfo();
+        publicSchoolStudent std1 = new publicSchoolStudent(14,"Ahmed");
+        std1.printInfo();
 
 
     }

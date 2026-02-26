@@ -4,7 +4,7 @@ public class MainP5 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        Player pl1 = new Player();
+        PlayerP5 pl1 = new PlayerP5();
         System.out.println("Please Enter player ID : ");
         pl1.setId(input.nextInt());
 
