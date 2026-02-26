@@ -1,0 +1,44 @@
+package Problem4;
+
+public class Player {
+    private String playerName;
+    private  int playerId;
+    private  String playerNumber;
+
+    public void setPlayerName(String playerName){
+        this.playerName= playerName;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerId(int playerId){
+        if(playerId>0){
+            this.playerId=playerId;
+        }else {
+            throw new IllegalArgumentException("Wrong input !");
+        }
+    }
+
+    public int getPlayerId(){
+        return playerId;
+    }
+
+
+    public void setPlayerNumber(String playerNumber) {
+        if(playerNumber.length() <=2) {
+            this.playerNumber = playerNumber;
+        }else {
+            throw new IllegalArgumentException("Wrong input!");
+        }
+    }
+    public String getPlayerNumber(){
+        return playerNumber;
+    }
+    public void printPlayerdetails(){
+        System.out.println("Name: "+ getPlayerName());
+        System.out.println("Id: "+ getPlayerId());
+        System.out.println("Number: "+ getPlayerNumber());
+    }
+}

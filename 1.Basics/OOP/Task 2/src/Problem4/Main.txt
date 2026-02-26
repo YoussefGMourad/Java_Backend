@@ -1,0 +1,52 @@
+import java.util.Scanner;
+import Problem4.Player;
+import Problem4.Student;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+       // The Player class
+        Player player = new Player();
+
+        System.out.println("Please Enter the player name :");
+        player.setPlayerName(input.next());
+        System.out.println("  ");
+
+        System.out.println("Please Enter the player id :");
+        player.setPlayerId(input.nextInt());
+        System.out.println("  ");
+
+        System.out.println("Please Enter the player number :");
+        player.setPlayerNumber(input.next());
+        System.out.println("  ");
+
+        player.printPlayerdetails();
+
+
+        System.out.println("  ");
+
+        System.out.println("  ");
+
+        // The student Class
+
+        Student student = new Student();
+        System.out.println("Please Enter the student name :");
+        student.setStudentName(input.next());
+        System.out.println("  ");
+
+        System.out.println("Please Enter the student id :");
+        student.setStudentId(input.nextInt());
+        System.out.println("  ");
+
+        System.out.println("Please Enter the student number :");
+        student.setStudentAge(input.nextInt());
+        System.out.println("  ");
+
+        student.printStudentdetails();
+
+
+        input.close();
+    }
+}
