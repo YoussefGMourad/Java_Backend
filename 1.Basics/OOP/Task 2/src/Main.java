@@ -4,7 +4,23 @@ public class Main {
     public static void main(String[] args) {
 
        // Player player= new Player();
-        Scanner input = new Scanner(System.in);
+
+         Scanner input = new Scanner(System.in);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //        problem number 2 V 2.1
 
@@ -15,7 +31,7 @@ public class Main {
 //
 //        player.printPlayerInfo();
 
-        System.out.println("_____________________________________________________");
+       // System.out.println("_____________________________________________________");
 
 //    problem number 2 V 2.2
 
@@ -36,23 +52,27 @@ public class Main {
 //        teacher.printTeacherInfo();
 
         // Problem number 3
-        System.out.println("_____________________________________________________");
+//        System.out.println("_____________________________________________________");
+//
+//        Calculation equ = new Calculation();
+//        System.out.println("Enter the first number :");
+//        equ.setNumberone(input.nextFloat());
+//
+//        System.out.println("Enter the second number :");
+//        equ.setNumbertwo(input.nextFloat());
+//
+//        System.out.println("Enter the third number :");
+//        equ.setNumberthree(input.nextFloat());
+//
+//        System.out.println("_____________________________________________________");
+//        equ.printTheSum();
+//
+//
+//        System.out.println("_____________________________________________________");
 
-        Calculation equ = new Calculation();
-        System.out.println("Enter the first number :");
-        equ.setNumberone(input.nextFloat());
-
-        System.out.println("Enter the second number :");
-        equ.setNumbertwo(input.nextFloat());
-
-        System.out.println("Enter the third number :");
-        equ.setNumberthree(input.nextFloat());
-
-        System.out.println("_____________________________________________________");
-        equ.printTheSum();
 
 
-        System.out.println("_____________________________________________________");
+
 
     }
 
