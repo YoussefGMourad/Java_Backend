@@ -2,9 +2,9 @@ package task15;
 
 public class Student {
 
-    private int studentId;
-    private String studentName;
-    private Course course ;
+    private final int studentId;
+    private final String studentName;
+    private final Course course ;
 
     public Student(int studentId, Course course, String studentName) {
         this.studentId = studentId;
