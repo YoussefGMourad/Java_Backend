@@ -1,3 +1,5 @@
+package task05;
+
 public class BaseEntity {
     private String Name;
     private int id  ;

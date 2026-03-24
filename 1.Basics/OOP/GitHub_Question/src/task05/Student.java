@@ -1,3 +1,5 @@
+package task05;
+
 public class Student extends ShareData {
     private int age;
 

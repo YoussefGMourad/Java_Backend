@@ -1,3 +1,5 @@
+package task05;
+
 public class Player extends ShareData {
     private int number;
 

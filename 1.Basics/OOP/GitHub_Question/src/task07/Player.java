@@ -1,3 +1,5 @@
+package task07;
+
 class Player {
     protected int id;
     protected String name;

@@ -1,13 +1,14 @@
+package task04;
 import java.util.Scanner;
-import Problem4.Player;
-import Problem4.Student;
+import task04.Player;
+import task04.Student;
 
-public class Main {
+public class Main04 {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
 
-       // The Player class
+        // The task04.Player class
         Player player = new Player();
 
         System.out.println("Please Enter the player name :");

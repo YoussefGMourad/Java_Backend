@@ -6,14 +6,14 @@ public class PublicClub {
    public String Position;
 
     public void getAge() {
-        System.out.println("The Player age is: "+age);
+        System.out.println("The task04.Player age is: "+age);
     }
 
     public void getName() {
-        System.out.println("The Player Name is: "+name);
+        System.out.println("The task04.Player Name is: "+name);
     }
 
     public void  getposition() {
-        System.out.println("The Player Position is: "+Position);
+        System.out.println("The task04.Player Position is: "+Position);
     }
 }

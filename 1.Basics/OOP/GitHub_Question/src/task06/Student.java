@@ -1,9 +1,11 @@
-public class Studentp6 {
+package task06;
+
+public class Student {
 
     private  int id;
     private String name;
 
-    public Studentp6(int id, String name) {
+    public Student(int id, String name) {
         this.id = id;
         this.name = name;
     }

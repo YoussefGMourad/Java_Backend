@@ -17,9 +17,9 @@ public class Main {
         player2.setName("Ahmed");
         player2.setPosition("Forward");
 
-        System.out.println("the Player name is : "+player2.getName());
-        System.out.println("the Player age is : "+player2.getAge());
-        System.out.println("the Player Position is : "+player2.getPosition());
+        System.out.println("the task04.Player name is : "+player2.getName());
+        System.out.println("the task04.Player age is : "+player2.getAge());
+        System.out.println("the task04.Player Position is : "+player2.getPosition());
 
 
     }

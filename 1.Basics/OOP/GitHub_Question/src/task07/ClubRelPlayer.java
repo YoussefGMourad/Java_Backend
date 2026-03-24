@@ -1,3 +1,5 @@
+package task07;
+
 class ClubRelPlayer extends Player {
     private String rCode;
 

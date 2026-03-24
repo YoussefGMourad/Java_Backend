@@ -1,3 +1,5 @@
+package task07;
+
 class ClubFcPlayer extends Player {
     private String fCode;
 

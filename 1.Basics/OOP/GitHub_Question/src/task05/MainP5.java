@@ -1,10 +1,12 @@
+package task05;
+
 import java.util.Scanner;
 
 public class MainP5 {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        PlayerP5 pl1 = new PlayerP5();
+        Player pl1 = new Player();
         System.out.println("Please Enter player ID : ");
         pl1.setId(input.nextInt());
 

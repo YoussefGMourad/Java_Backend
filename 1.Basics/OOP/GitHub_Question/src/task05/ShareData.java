@@ -1,3 +1,5 @@
+package task05;
+
 public class ShareData extends BaseEntity {
     private String phone;
 
