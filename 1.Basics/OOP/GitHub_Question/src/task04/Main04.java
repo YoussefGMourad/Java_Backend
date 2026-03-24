@@ -1,7 +1,6 @@
 package task04;
 import java.util.Scanner;
-import task04.Player;
-import task04.Student;
+
 
 public class Main04 {
     public static void main(String[] args) {
