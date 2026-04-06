@@ -1,4 +1,4 @@
-import java.util.HashMap;
+
 import java.util.HashSet;
 
 public class Main {
@@ -19,10 +19,11 @@ public class Main {
         } else{                              // false
             System.out.println("Not equal values");
         }
+
         // before overriding the Equals method the two objects aren't equal because it uses references
         // but after overriding the Equals method the two objects are equal in values
 
-        System.out.println("<------------------Hashset----------------------->");
+        System.out.println("<------------------Hashset------------------>");
 
         HashSet<Person> set  = new HashSet<>();
         set.add(p1);
