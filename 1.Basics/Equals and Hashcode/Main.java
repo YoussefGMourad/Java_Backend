@@ -1,5 +1,9 @@
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class Main {
     public static void main(String[] args) {
+
 
         Person p1 = new Person (1,"JOE");
 
@@ -15,8 +19,16 @@ public class Main {
         } else{                              // false
             System.out.println("Not equal values");
         }
-
         // before overriding the Equals method the two objects aren't equal because it uses references
         // but after overriding the Equals method the two objects are equal in values
+
+        System.out.println("<------------------Hashset----------------------->");
+
+        HashSet<Person> set  = new HashSet<>();
+        set.add(p1);
+        set.add(p2);
+        System.out.println("The size of the set is : "+set.size()); // will  return one if the Hashcode is overrided
+        System.out.println(set);
+
     }
 }
