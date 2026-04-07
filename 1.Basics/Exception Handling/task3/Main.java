@@ -7,7 +7,6 @@ public class Main {
     }
     public static void main(String[] args) {
         System.out.println(printUpperCase("hello"));
-        String text =null;
         try {
 
             System.out.println(printUpperCase(null));
