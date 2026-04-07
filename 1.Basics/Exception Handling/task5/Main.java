@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        
+
         Scanner fileScanner = null;
         try {
             FileReader reader = new FileReader("data");
@@ -17,7 +17,7 @@ public class Main {
         } catch (FileNotFoundException e) {
             System.out.println("The file not found");
         } finally {
-            if (fileScanner != null) fileScanner.close();   // always close
+            if (fileScanner != null) fileScanner.close();   
         }
     }
 }
