@@ -1,3 +1,5 @@
+package task1;
+
 import java.util.Objects;
 
 public class Person {
@@ -5,14 +7,14 @@ public class Person {
    private int id;
 
 
-   Person(int id ,String name){
+   public Person(int id, String name){
        this.name = name;
        this.id = id;
    };
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "task1.Person{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
                 '}';
@@ -25,8 +27,8 @@ public class Person {
         return id == person.id && Objects.equals(name, person.name);
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(name, id);
-//    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, id);
+    }
 }

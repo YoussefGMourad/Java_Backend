@@ -1,20 +1,29 @@
-import java.util.HashMap;
+package task1;
+
 import java.util.HashSet;
 
-public class Main {
+public class Main1 {
     public static void main(String[] args) {
 
 
-        Person p1 = new Person (1,"JOE");
+        Person p1 = new Person(1,"JOE");
 
-        Person p2 = new Person (1,"JOE");
+        Person p2 = new Person(1,"JOE");
 
         System.out.println(p1.toString());
         System.out.println(p2.toString());
 
+
         // System.out.println(p1.equals(p2));
 
         if(p1.equals(p2))  {                 // true
+            System.out.println("Equal values");
+        } else{                              // false
+            System.out.println("Not equal values");
+        }
+
+
+        if(p1==p2)  {
             System.out.println("Equal values");
         } else{                              // false
             System.out.println("Not equal values");
