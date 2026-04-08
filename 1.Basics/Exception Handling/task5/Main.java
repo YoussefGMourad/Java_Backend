@@ -17,7 +17,7 @@ public class Main {
         } catch (FileNotFoundException e) {
             System.out.println("The file not found");
         } finally {
-            if (fileScanner != null) fileScanner.close();   
+            if (fileScanner != null) fileScanner.close();
         }
     }
 }
