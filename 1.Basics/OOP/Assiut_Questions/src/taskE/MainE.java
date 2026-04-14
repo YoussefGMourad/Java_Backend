@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class MainE {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter number");
         int n = sc.nextInt();
         int max = Integer.MIN_VALUE;
 
