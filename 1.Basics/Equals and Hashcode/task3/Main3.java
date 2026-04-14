@@ -1,9 +1,5 @@
 package task3;
-
-
 import java.util.HashMap;
-
-
 public class Main3 {
     public static void main(String[] args) {
         HashMap<Person3,String> map  = new HashMap<>();
