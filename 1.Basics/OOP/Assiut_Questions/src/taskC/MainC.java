@@ -2,7 +2,7 @@ package src.taskC;
 
 import java.util.Scanner;
 
-public class taskC {
+public class MainC {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter some numbers");
