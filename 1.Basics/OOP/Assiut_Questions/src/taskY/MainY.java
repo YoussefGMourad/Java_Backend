@@ -1,14 +1,18 @@
 import java.util.Scanner;
 
-public class V_PUM {
+public class MainY {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int current = 1;
+
+        long a = 0, b = 1;
 
         for (int i = 0; i < n; i++) {
-            System.out.println(current + " " + (current + 1) + " " + (current + 2) + " PUM");
-            current += 4;
+            System.out.print(a + " ");
+            long temp = a + b;
+            a = b;
+            b = temp;
         }
+        System.out.println();
     }
 }

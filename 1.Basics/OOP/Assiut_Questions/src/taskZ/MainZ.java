@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Z_ThreeNumbers {
+public class MainZ {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int k = sc.nextInt();
