@@ -3,18 +3,18 @@ package model;
 public class Account {
     private String username;
     private String password;
-    private int age;
+    private float age;
     private String phonenumber;
     private double balance;
     private boolean isAdmin;
 
-    public Account( String username,String password,int age,String phonenumber,double balance,boolean isAdmin){
+    public Account( String username,String password,float age,String phonenumber){
         this.username= username;
         this.password=password;
         this.age =age;
         this.phonenumber = phonenumber;
-        this.balance = balance;
-        this.isAdmin = isAdmin;
+        this.balance = 0;
+        this.isAdmin = false;
     }
 
     public String getUsername() {
@@ -25,7 +25,7 @@ public class Account {
         return password;
     }
 
-    public int getAge() {
+    public float getAge() {
         return age;
     }
 
@@ -50,7 +50,13 @@ public class Account {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age>18)
+        {
+            this.age = age;
+        }else {
+            System.out.println("You must be older than 17 years");
+
+        }
     }
 
     public void setPhonenumber(String phonenumber) {
