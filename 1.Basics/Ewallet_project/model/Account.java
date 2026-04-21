@@ -1,5 +1,7 @@
 package model;
 
+import java.util.InputMismatchException;
+
 public class Account {
     private String username;
     private String password;
@@ -8,10 +10,10 @@ public class Account {
     private double balance;
     private boolean isAdmin;
 
-    public Account( String username,String password,float age,String phonenumber){
-        this.username= username;
-        this.password=password;
-        this.age =age;
+    public Account(String username, String password, float age, String phonenumber) {
+        this.username = username;
+        this.password = password;
+        this.age = age;
         this.phonenumber = phonenumber;
         this.balance = 0;
         this.isAdmin = false;
@@ -50,11 +52,12 @@ public class Account {
     }
 
     public void setAge(int age) {
-        if (age>18)
-        {
+        if (age < 18) {
+
+            throw new InputMismatchException("You must be older than 17 years ");
+
+        } else {
             this.age = age;
-        }else {
-            System.out.println("You must be older than 17 years");
 
         }
     }

@@ -66,22 +66,29 @@ public class ApplicationServiceImplementation implements ApplicationService {
         }
     }
 
+    private AccountService accountService = new AccountServiceImplementation();
+
     private void signup() {
-        Scanner input = new Scanner(System.in);
 
-        System.out.println("Please Enter your username");
-        String username = input.next();
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Please Enter your username");
+            String username = input.next();
 
-        System.out.println("Please Enter your password");
-        String password = input.next();
+            System.out.println("Please Enter your password");
+            String password = input.next();
 
-        System.out.println("Please Enter your age");
-        float age = input.nextFloat();
+            System.out.println("Please Enter your age");
+            float age = input.nextFloat();
 
-        System.out.println("Please Enter your phone number");
-        String phonenumber = input.next();
+            System.out.println("Please Enter your phone number");
+            String phonenumber = input.next();
+            Account account = new Account(username, password, age, phonenumber);
+            accountService.createAccount(account);
 
-        Account account = new Account(username, password, age, phonenumber);
+        } catch (InputMismatchException e) {
+            System.err.println("Worng input");
+        }
 
 
     }
