@@ -28,6 +28,10 @@ public class Main {
         HashSet<Person> set  = new HashSet<>();
         set.add(p1);
         set.add(p2);
+
+//        System.out.println(p1.hashCode());
+//        System.out.println(p2.hashCode());
+
         System.out.println("The size of the set is : "+set.size()); // will  return one if the Hashcode is overrided
         System.out.println(set);
 
