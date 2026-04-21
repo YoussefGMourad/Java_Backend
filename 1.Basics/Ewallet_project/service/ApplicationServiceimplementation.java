@@ -1,4 +1,5 @@
 package service;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ApplicationServiceimplementation  implements ApplicationService{
@@ -14,10 +15,11 @@ public class ApplicationServiceimplementation  implements ApplicationService{
 
         while (true) {
 
-            System.out.println("Please chosse an option to proceed ");
+            System.out.println("Please choose an option to proceed ");
 
             System.out.println("1.Login  2.SignUp  3.Exit ");
 
+            try{
             int choice = input.nextInt();
 
             if (counter < 4) {
@@ -52,7 +54,17 @@ public class ApplicationServiceimplementation  implements ApplicationService{
                 System.out.println("Please try again later..");
                 break;
             }
+            } catch (InputMismatchException e) {
+                throw new InputMismatchException("Invalid Choice, Please enter a right option...!");
+
+            }
 
         }
     }
+
+    private void signup(){
+
+
+    }
+
 }
