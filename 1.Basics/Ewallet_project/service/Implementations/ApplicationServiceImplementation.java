@@ -3,6 +3,7 @@ package service.Implementations;
 import model.Account;
 import service.AccountService;
 import service.ApplicationService;
+import service.ValidationService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -73,6 +74,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
     }
 
     private AccountService accountService = new AccountServiceImplementation();
+    private ValidationService validationService = new ValidationServiceImplementation();
 
     private void signup() {
 
@@ -81,17 +83,41 @@ public class ApplicationServiceImplementation implements ApplicationService {
             Scanner input = new Scanner(System.in);
             System.out.println("\n── Create a New Account ──");
 
+
             System.out.println("Please Enter your username");
             String username = input.next();
+            while(!validateUsername(username)){
+                System.out.println("Username: ");
+                username = input.next();
+            };
+
 
             System.out.println("Please Enter your password");
             String password = input.next();
+            while(!validatePhonenumber(password)){
+                System.out.println("Please Enter your password");
+                password = input.next();
+            };
+
+
 
             System.out.println("Please Enter your age");
-            float age = input.nextFloat();
+            int age = input.nextInt();
+            while(!validateAge(age)){
+                System.out.println("Please Enter your age: ");
+                age = input.nextInt();
+            };
+
 
             System.out.println("Please Enter your phone number");
             String phonenumber = input.next();
+
+            while(!validateUsername(phonenumber)){
+                System.out.println("Please Enter your phone number");
+                phonenumber = input.next();
+            };
+
+
             Account account = new Account(username, password, age, phonenumber);
             boolean doesAccoutExist = accountService.createAccount(account);
 
@@ -127,19 +153,30 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
         try {
             Scanner input = new Scanner(System.in);
+
             System.out.println("\n── Login to Your Account ──");
 
             System.out.println("Please Enter your username");
             String username = input.next();
+            while(!validateUsername(username)){
+                System.out.println("Username: ");
+                username = input.next();
+            };
+
+
             System.out.println("Please Enter your password");
             String password = input.next();
+            while(!validatePhonenumber(password)){
+                System.out.println("Please Enter your password");
+                password = input.next();
+            };
 
 
             Account account = new Account(username,password);
 
 
-            boolean doesAccoutExist = accountService.doesAccountExistWithUsernameAndPassword(account);
-            if(doesAccoutExist){
+            boolean doesAccountExist = accountService.doesAccountExistWithUsernameAndPassword(account);
+            if(doesAccountExist){
                 mainProfile(); // go to the main page
 
             }else {
@@ -150,6 +187,60 @@ public class ApplicationServiceImplementation implements ApplicationService {
         }
     }
 
+    private boolean validateUsername(String username){
+        boolean isUsernameValid = validationService.isUsernameValid(username);
+
+        if(!isUsernameValid){
+            System.err.println("Invalid input");
+            System.err.println("✘ Username cannot be empty.");
+            System.err.println("✘ Username must be at least 3 characters.");
+            System.err.println("✘ Username must start with an uppercase letter.");
+            System.err.println("✘ Username cannot contain numbers.");
+            System.out.println("Please Enter a valid input");
+        }
+        return isUsernameValid;
+    }
+
+    private boolean validatePassword(String password){
+        boolean isPasswordValid = validationService.isPasswordValid(password);
+
+        if(!isPasswordValid){
+            System.err.println("Invalid input");
+            System.err.println("✘ Password cannot be empty.");
+            System.err.println("✘ Password must be at least 8 characters.");
+            System.err.println("✘ Password cannot start with a number.");
+            System.err.println("✘ Password must contain at least one uppercase letter.");
+            System.err.println("✘ Password must contain at least one lowercase letter.");
+            System.err.println("✘ Password must contain at least one number.");
+            System.err.println("Please Enter a valid input");
+        }return isPasswordValid;
+    }
+    private  boolean validateAge(int age){
+        boolean isAgeValid = validationService.isAgeValid(age);
+
+        if(!isAgeValid){
+            System.err.println("Invalid input");
+            System.err.println("✘ You must be at least 18 years old to register.");
+            System.err.println("✘ Please enter a valid age.");
+            System.err.println("Please Enter a valid input");
+        }
+        return isAgeValid;
+    }
+    private boolean validatePhonenumber(String phonenumber){
+        boolean isPhonenumberValid = validationService.isPhonenumberValid(phonenumber);
+
+        if(!isPhonenumberValid){
+            System.err.println("Invalid input");
+            System.err.println("✘ Phone number cannot be empty.");
+            System.err.println("✘ Phone number must be exactly 11 digits.");
+            System.err.println("✘ Phone number must start with 01.");
+            System.err.println("✘ Invalid operator. Must be 010, 011, 012, or 015.");
+            System.err.println("✘ Phone number must contain digits only.");
+            System.err.println("Please Enter a valid input");
+
+        }
+        return isPhonenumberValid;
+    }
 
     private  void mainProfile(){
         Scanner input = new Scanner(System.in);
