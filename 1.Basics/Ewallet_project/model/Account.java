@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 public class Account {
     private String username;
     private String password;
-    private float age;
+    private int age;
     private String phonenumber;
     private double balance;
     private boolean isAdmin;
@@ -15,7 +15,7 @@ public class Account {
         this.password = password;
     }
 
-    public Account(String username, String password, float age, String phonenumber) {
+    public Account(String username, String password, int age, String phonenumber) {
         this.username = username;
         this.password = password;
         this.age = age;
@@ -32,7 +32,7 @@ public class Account {
         return password;
     }
 
-    public float getAge() {
+    public int getAge() {
         return age;
     }
 
@@ -56,16 +56,8 @@ public class Account {
         this.password = password;
     }
 
-    public void setAge(int age) {
-        if (age < 18) {
+    public void setAge(int age) { this.age = age; }
 
-            throw new InputMismatchException("You must be older than 17 years ");
-
-        } else {
-            this.age = age;
-
-        }
-    }
 
     public void setPhonenumber(String phonenumber) {
         this.phonenumber = phonenumber;

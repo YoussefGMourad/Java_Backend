@@ -4,42 +4,46 @@ import model.Account;
 import model.EWalletSystem;
 import service.AccountService;
 
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 public class AccountServiceImplementation implements AccountService {
 
     private EWalletSystem eWalletSystem = new EWalletSystem();
 
     @Override
-    public boolean createAccount(Account account) {
+    public Account createAccount(Account account) {
         /*
         this method checks is the account exist or no in the signup process
         Depends on Username only
         */
-        boolean doesAccountExist = eWalletSystem.getAccounts().stream().anyMatch(acc -> acc.getUsername().equals(account.getUsername()));
+        Optional<Account> accountOptional = eWalletSystem.getAccounts()
+                .stream()
+                .filter(acc -> acc.getUsername()
+                        .equals(account.getUsername()))
+                .findFirst();
+        // need to ask a question here --> Youssef!!!!!
 
-        // need to ask a question here --> Youssef!
-
-        if (doesAccountExist){
-            return false;
+        if (accountOptional.isPresent()) {
+            return null;
         }
 
         eWalletSystem.getAccounts().add(account);
-        return true;
+        return account;
     }
 
 
     @Override
-    public boolean doesAccountExistWithUsernameAndPassword(Account account) {
+    public Account doesAccountExistWithUsernameAndPassword(Account account) {
 
         /*
         this method checks is the account exist or no in the login process
         Depends on username and password
         */
 
-        boolean doesAccountExist = eWalletSystem.getAccounts().stream().anyMatch(acc -> acc.getUsername().equals(account.getUsername()) &&  acc.getPassword().equals(account.getPassword()));
-
-        if (doesAccountExist){
-            return true;
-        }
-        return false;
+        return eWalletSystem.getAccounts().stream()
+                .filter(acc -> acc.getUsername().equals(account.getUsername()) &&
+                        acc.getPassword().equals(account.getPassword())).findFirst().orElse(null);
     }
+
 }

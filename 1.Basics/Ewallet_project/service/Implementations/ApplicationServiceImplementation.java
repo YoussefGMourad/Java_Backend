@@ -6,6 +6,7 @@ import service.ApplicationService;
 import service.ValidationService;
 
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class ApplicationServiceImplementation implements ApplicationService {
@@ -94,7 +95,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
             System.out.println("Please Enter your password");
             String password = input.next();
-            while(!validatePhonenumber(password)){
+            while(!validatePassword(password)){
                 System.out.println("Please Enter your password");
                 password = input.next();
             };
@@ -112,18 +113,17 @@ public class ApplicationServiceImplementation implements ApplicationService {
             System.out.println("Please Enter your phone number");
             String phonenumber = input.next();
 
-            while(!validateUsername(phonenumber)){
+            while(!validatePhonenumber(phonenumber)){
                 System.out.println("Please Enter your phone number");
                 phonenumber = input.next();
             };
 
 
             Account account = new Account(username, password, age, phonenumber);
-            boolean doesAccoutExist = accountService.createAccount(account);
+            account = accountService.createAccount(account);
 
-            if(doesAccoutExist){
+            if (Objects.nonNull(account)) {
                 System.out.println("\n✔ Account created successfully! Welcome aboard.");
-
                 System.out.println("\n1. Go to Main Menu");
                 System.out.println("2. Back to Start");
                 System.out.print("Your choice: ");
@@ -131,7 +131,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
                 choice = input.nextInt();
 
                 if (choice == 1)  {
-                  mainProfile();  // go to the main page
+                  mainProfile(account);  // go to the main page
 
                 }
                 if(choice == 2){
@@ -175,10 +175,11 @@ public class ApplicationServiceImplementation implements ApplicationService {
             Account account = new Account(username,password);
 
 
-            boolean doesAccountExist = accountService.doesAccountExistWithUsernameAndPassword(account);
-            if(doesAccountExist){
-                mainProfile(); // go to the main page
+            account = accountService.doesAccountExistWithUsernameAndPassword(account);
 
+            if(Objects.nonNull(account)) {
+                System.out.println("\nLogin successful!");
+                mainProfile(account);
             }else {
                 System.err.println("✘ Incorrect username or password. Please try again.");
             }
@@ -242,16 +243,22 @@ public class ApplicationServiceImplementation implements ApplicationService {
         return isPhonenumberValid;
     }
 
-    private  void mainProfile(){
+
+
+    private  void mainProfile(Account account){
         Scanner input = new Scanner(System.in);
 
         while (true) {
             System.out.println("\n╔══════════════════════════╗");
             System.out.println("║       Your Wallet        ║");
             System.out.println("╚══════════════════════════╝");
-            System.out.println("1. Deposit");
-            System.out.println("2. Withdraw");
-            System.out.println("3. Logout");
+            System.out.println("[1] Deposit");
+            System.out.println("[2] Withdraw");
+            System.out.println("[3] Transfer");
+            System.out.println("[4] Show Profile Details");
+            System.out.println("[5] Change Password");
+            System.out.println("[6] Remove Account");
+            System.out.println("[7] Logout");
             System.out.print("Your choice: ");
 
             int choice = input.nextInt();
@@ -264,11 +271,34 @@ public class ApplicationServiceImplementation implements ApplicationService {
                     // withdraw logic
                     break;
                 case 3:
+                    //
+                case 4:
+                    showProfileDetails(account);
+                    break;
+                case 5:
+                    // withdraw logic
+                    break;
+                case 6:
+                    // withdraw logic
+                    break;
+                case 7:
                     System.out.println("\nYou have been logged out. See you next time!");
                     return; // exits mainProfile() → goes back to start() menu
                 default:
-                    System.out.println("⚠ Invalid option. Please enter 1, 2, or 3.");
+                    System.out.println("⚠ Invalid option. Please enter 1, 2, 3....");
             }
         }
+    }
+
+    private void showProfileDetails(Account account) {
+        System.out.println("=================================");
+        System.out.println("           Account Data          ");
+        System.out.println("=================================\n");
+
+        System.out.println("Username: " + account.getUsername());
+        System.out.println("Password: " + account.getPassword());
+        System.out.println("Balance: " + account.getBalance());
+        System.out.println("Phone Number: " + account.getPhonenumber());
+        System.out.println("Age: " + account.getAge());
     }
 }

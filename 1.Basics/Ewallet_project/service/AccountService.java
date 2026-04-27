@@ -3,8 +3,8 @@ package service;
 import model.Account;
 
 public interface AccountService {
-    boolean createAccount(Account account);
+    Account createAccount(Account account);
 
-    boolean doesAccountExistWithUsernameAndPassword(Account account);
+    Account doesAccountExistWithUsernameAndPassword(Account account);
 
 }
