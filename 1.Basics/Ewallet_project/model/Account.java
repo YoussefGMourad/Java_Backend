@@ -10,6 +10,11 @@ public class Account {
     private double balance;
     private boolean isAdmin;
 
+    public Account(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public Account(String username, String password, float age, String phonenumber) {
         this.username = username;
         this.password = password;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/taskI" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskJ" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskK" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskL" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskM" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskN" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskO" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskP" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskQ" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskR" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskS" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskT" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskU" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskV" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskW" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskX" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskY" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/taskZ" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

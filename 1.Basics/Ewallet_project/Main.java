@@ -1,5 +1,5 @@
 import service.ApplicationService;
-import service.ApplicationServiceImplementation;
+import service.Implementations.ApplicationServiceImplementation;
 
 public class Main {
 
