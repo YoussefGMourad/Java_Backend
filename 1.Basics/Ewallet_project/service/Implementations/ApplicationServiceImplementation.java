@@ -248,7 +248,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
 
     private  void mainProfile(Account account){
-        Scanner input = new Scanner(System.in);
+         Scanner input = new Scanner(System.in);
 
         while (true) {
             System.out.println("\n╔══════════════════════════╗");
@@ -273,16 +273,16 @@ public class ApplicationServiceImplementation implements ApplicationService {
                     withdraw(account);
                     break;
                 case 3:
-                    //
+                    //transfer(account);
                     break;
                 case 4:
                     showProfileDetails(account);
                     break;
                 case 5:
-                    // withdraw logic
+                    changePassword(account);
                     break;
                 case 6:
-                    // withdraw logic
+                    removeAccount(account);
                     break;
                 case 7:
                     System.out.println("\nYou have been logged out. See you next time!");
@@ -291,18 +291,6 @@ public class ApplicationServiceImplementation implements ApplicationService {
                     System.out.println("⚠ Invalid option. Please enter 1, 2, 3....");
             }
         }
-    }
-
-    private void showProfileDetails(Account account) {
-        System.out.println("=================================");
-        System.out.println("           Account Data          ");
-        System.out.println("=================================\n");
-
-        System.out.println("Username: " + account.getUsername());
-        System.out.println("Password: " + account.getPassword());
-        System.out.println("Balance: " + account.getBalance());
-        System.out.println("Phone Number: " + account.getPhonenumber());
-        System.out.println("Age: " + account.getAge());
     }
 
 
@@ -319,6 +307,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
              System.out.println("Deposit failed ");
          }
  }
+
     private void withdraw(Account account){
         Scanner input = new Scanner(System.in);
         System.out.println("Please enter the amount you want to withdraw..");
@@ -331,5 +320,52 @@ public class ApplicationServiceImplementation implements ApplicationService {
         }else {
             System.out.println("Withdraw failed ");
         }
+    }
+
+    private void showProfileDetails(Account account) {
+        System.out.println("=================================");
+        System.out.println("           Account Data          ");
+        System.out.println("=================================\n");
+
+        System.out.println("Username: " + account.getUsername());
+        System.out.println("Password: " + account.getPassword());
+        System.out.println("Balance: " + account.getBalance());
+        System.out.println("Phone Number: " + account.getPhonenumber());
+        System.out.println("Age: " + account.getAge());
+    }
+
+    private void changePassword(Account account){
+        System.out.println("Please enter the new password");
+        Scanner input = new Scanner(System.in);
+        String newPassword = input.next();
+
+       if(validatePassword(newPassword)){
+
+           boolean doesPasswordChanged = accountService.changePassword(account, newPassword);
+           if(doesPasswordChanged){
+               System.out.println("Password changed Success");
+           }else {
+               System.out.println("Password changed failed ");
+           }
+       }
+    }
+
+    private void removeAccount(Account account){
+        System.out.println("⚠ Are you sure you want to delete your account? (yes / no)");
+        Scanner input = new Scanner(System.in);
+        String confirmation = input.next();
+
+        if (confirmation.equalsIgnoreCase("yes")) {
+            boolean removed = accountService.removeAccount(account);
+            if (removed) {
+                System.out.println("✔ Your account has been permanently deleted.");
+                start();
+            } else {
+                System.out.println("✘ Something went wrong. Account not removed.");
+            }
+        } else {
+            System.out.println("Deletion cancelled. Returning to menu.");
+        }
+
     }
 }

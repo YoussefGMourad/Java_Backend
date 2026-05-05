@@ -9,7 +9,7 @@ public interface AccountService {
 
     boolean deposit(Account account, double amount);
     boolean withdraw(Account account, double amount);
-    boolean transfer(Account from, String toUsername, double amount);
-    void changePassword(Account account, String newPassword);
+    boolean transfer(Account senderAccount,String username, double amount);
+    boolean changePassword(Account account, String newPassword);
     boolean removeAccount(Account account);
 }
