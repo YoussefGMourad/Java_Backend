@@ -5,6 +5,7 @@ import service.AccountService;
 import service.ApplicationService;
 import service.ValidationService;
 
+import javax.xml.transform.Source;
 import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
@@ -67,9 +68,10 @@ public class ApplicationServiceImplementation implements ApplicationService {
                     break;
                 }
             } catch (InputMismatchException e) {
-                throw new InputMismatchException("Invalid input. Please enter a number.");
-
-            }
+            System.err.println("⚠ Invalid input. Please enter a number.");
+            input.nextLine();
+            counter++;
+        }
 
         }
     }
@@ -166,7 +168,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
             System.out.println("Please Enter your password");
             String password = input.next();
-            while(!validatePhonenumber(password)){
+            while(!validatePassword(password)){
                 System.out.println("Please Enter your password");
                 password = input.next();
             };
@@ -265,13 +267,14 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
             switch (choice) {
                 case 1:
-                    // deposit logic
+                    deposit(account);
                     break;
                 case 2:
-                    // withdraw logic
+                    withdraw(account);
                     break;
                 case 3:
                     //
+                    break;
                 case 4:
                     showProfileDetails(account);
                     break;
@@ -300,5 +303,33 @@ public class ApplicationServiceImplementation implements ApplicationService {
         System.out.println("Balance: " + account.getBalance());
         System.out.println("Phone Number: " + account.getPhonenumber());
         System.out.println("Age: " + account.getAge());
+    }
+
+
+     private void deposit(Account account){
+        Scanner input = new Scanner(System.in);
+         System.out.println("Please enter the amount you want to deposit..");
+         double amount = input.nextDouble();
+
+         boolean doesDepositSuccess = accountService.deposit(account , amount);
+
+         if(doesDepositSuccess){
+             System.out.println("Deposit Success");
+         }else {
+             System.out.println("Deposit failed ");
+         }
+ }
+    private void withdraw(Account account){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter the amount you want to withdraw..");
+        double amount = input.nextDouble();
+
+        boolean doesWithdrawSucces = accountService.withdraw(account , amount);
+
+        if(doesWithdrawSucces){
+            System.out.println("Withdraw Success");
+        }else {
+            System.out.println("Withdraw failed ");
+        }
     }
 }

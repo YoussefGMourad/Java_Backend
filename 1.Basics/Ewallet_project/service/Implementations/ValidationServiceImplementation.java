@@ -60,7 +60,7 @@ public class ValidationServiceImplementation implements ValidationService {
       if (!phonenumber.startsWith("01")){
           return false;
       }
-      char secondChar = phonenumber.charAt(1);
+      char secondChar = phonenumber.charAt(2);
         if (secondChar != '0' && secondChar != '1' && secondChar != '2' &&secondChar != '5' ){
             return false;
         }
