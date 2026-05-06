@@ -132,11 +132,11 @@ public class AccountServiceImplementation implements AccountService {
 
         if (index == -1){
             System.out.println("Account not found ! ");
+            return false;
         }
 
         String Password =newPassword;
                 eWalletSystem.getAccounts().get(index).setPassword(Password);
-
                 return true;
     }
 

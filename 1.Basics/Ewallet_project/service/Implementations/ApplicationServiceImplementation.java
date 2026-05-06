@@ -12,10 +12,10 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class ApplicationServiceImplementation implements ApplicationService {
-
+    private final Scanner input = new Scanner(System.in);
     @Override
     public void start() {
-        Scanner input = new Scanner(System.in);
+
 
         System.out.println("╔══════════════════════════════════╗");
         System.out.println("║   Welcome to EraaSoft e-Wallet   ║");
@@ -84,7 +84,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
         try {
             int choice =0 ;
-            Scanner input = new Scanner(System.in);
+
             System.out.println("\n── Create a New Account ──");
 
 
@@ -155,7 +155,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
     private void login() {
 
         try {
-            Scanner input = new Scanner(System.in);
+
 
             System.out.println("\n── Login to Your Account ──");
 
@@ -249,7 +249,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
 
     private  void mainProfile(Account account){
-         Scanner input = new Scanner(System.in);
+
 
         while (true) {
             System.out.println("\n╔══════════════════════════╗");
@@ -284,19 +284,20 @@ public class ApplicationServiceImplementation implements ApplicationService {
                     break;
                 case 6:
                     removeAccount(account);
-                    break;
+                    return;
                 case 7:
                     System.out.println("\nYou have been logged out. See you next time!");
                     return; // exits mainProfile() → goes back to start() menu
                 default:
                     System.out.println("⚠ Invalid option. Please enter 1, 2, 3....");
+
             }
         }
     }
 
 
      private void deposit(Account account){
-        Scanner input = new Scanner(System.in);
+
          System.out.println("Please enter the amount you want to deposit..");
          double amount = input.nextDouble();
 
@@ -310,7 +311,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
  }
 
     private void withdraw(Account account){
-        Scanner input = new Scanner(System.in);
+
         System.out.println("Please enter the amount you want to withdraw..");
         double amount = input.nextDouble();
 
@@ -337,7 +338,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
     private void changePassword(Account account){
         System.out.println("Please enter the new password");
-        Scanner input = new Scanner(System.in);
+
         String newPassword = input.next();
 
        if(validatePassword(newPassword)){
@@ -353,14 +354,14 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
     private void removeAccount(Account account){
         System.out.println("⚠ Are you sure you want to delete your account? (yes / no)");
-        Scanner input = new Scanner(System.in);
+
         String confirmation = input.next();
 
         if (confirmation.equalsIgnoreCase("yes")) {
             boolean removed = accountService.removeAccount(account);
             if (removed) {
                 System.out.println("✔ Your account has been permanently deleted.");
-                start();
+                return;
             } else {
                 System.out.println("✘ Something went wrong. Account not removed.");
             }
@@ -372,11 +373,12 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
     private void transfer(Account account ){
         System.out.println("Enter the username of the recipient: ");
-        Scanner input = new Scanner(System.in);
+
          String toUsername = input.next();
 
         if (toUsername.equalsIgnoreCase(account.getUsername())) {
             System.err.println("✘ You cannot transfer to your own account.");
+            return ;
         }
         else {
             System.out.println("Enter amount to transfer: ");
