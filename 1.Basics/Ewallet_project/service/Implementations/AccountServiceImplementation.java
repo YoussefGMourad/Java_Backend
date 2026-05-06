@@ -98,38 +98,24 @@ public class AccountServiceImplementation implements AccountService {
     }
 
     @Override
-    public boolean transfer( Account account,String toUsername ,double amount) {
+    public boolean transfer( Account from ,String toUsername ,double amount) {
         Account to = findByUsername(toUsername);
 
-        int index = IntStream.range(0,eWalletSystem.getAccounts().size())
-                .filter(i ->{
-                    Account acc = eWalletSystem.getAccounts().get(i);
-                    return acc.getUsername().equals(account.getUsername())
-                            && acc.getPassword().equals(account.getPassword());
-                } ).findFirst()
-                .orElse(-1);
-
-        if (index == -1 ){
+        if (to == null){ // account exist
             System.out.println("One of the accounts is not found ! ");
+            return false;
         }
-
-        if (index == index ){
+        if (from.getUsername().equals(to.getUsername())){ // can't send money to the same account
             System.out.println("You can't send money to the sender account! ");
+            return false;
         }
-        if(amount>account.getBalance()){
+        if(from.getBalance()<amount){  // amount !> balance
             System.out.println("No enough money to withdraw");
             return false;
         }
 
-        double senderTotalBalance  = eWalletSystem.getAccounts().get(index).getBalance() - amount;
-        eWalletSystem.getAccounts().get(index).setBalance(senderTotalBalance);
-
-        double reciverTotalBalance  = eWalletSystem.getAccounts().get(index).getBalance() + amount;
-        eWalletSystem.getAccounts().get(index).setBalance(reciverTotalBalance);
-
-
-
-
+        from.setBalance(from.getBalance() - amount);
+        to.setBalance(to.getBalance() + amount);
         return true;
     }
 

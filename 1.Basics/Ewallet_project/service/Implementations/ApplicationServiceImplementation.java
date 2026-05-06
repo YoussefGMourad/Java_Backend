@@ -6,6 +6,7 @@ import service.ApplicationService;
 import service.ValidationService;
 
 import javax.xml.transform.Source;
+import java.sql.Struct;
 import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
@@ -273,7 +274,7 @@ public class ApplicationServiceImplementation implements ApplicationService {
                     withdraw(account);
                     break;
                 case 3:
-                    //transfer(account);
+                    transfer(account);
                     break;
                 case 4:
                     showProfileDetails(account);
@@ -367,5 +368,34 @@ public class ApplicationServiceImplementation implements ApplicationService {
             System.out.println("Deletion cancelled. Returning to menu.");
         }
 
+    }
+
+    private void transfer(Account account ){
+        System.out.println("Enter the username of the recipient: ");
+        Scanner input = new Scanner(System.in);
+         String toUsername = input.next();
+
+        if (toUsername.equalsIgnoreCase(account.getUsername())) {
+            System.err.println("✘ You cannot transfer to your own account.");
+        }
+        else {
+            System.out.println("Enter amount to transfer: ");
+        }
+
+        double transferAmount = input.nextDouble();
+
+        while (transferAmount <= 0) {
+            System.err.println("✘ Amount must be greater than zero.");
+            System.out.println("Enter amount to transfer: ");
+            transferAmount = input.nextDouble();
+        }
+
+        boolean transferred = accountService.transfer(account, toUsername, transferAmount);
+
+        if (transferred) {
+            System.out.println("✔ Transfer successful! New balance: " + account.getBalance());
+        } else {
+            System.err.println("✘ Transfer failed. Recipient not found or insufficient balance.");
+        }
     }
 }
