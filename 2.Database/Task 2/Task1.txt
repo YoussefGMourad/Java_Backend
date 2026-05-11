@@ -1,0 +1,35 @@
+CREATE TABLE DOCTOR(
+    ID      INT          NOT NULL PRIMARY KEY,
+    NAME    VARCHAR(50),
+    SALARY  FLOAT,
+    ADDRESS VARCHAR(50)
+);
+
+INSERT ALL
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (1,  'Dr. Ahmed',   75000.50,  'Cairo, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (2,  'Dr. Sara',    90000.00,  'Alexandria, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (3,  'Dr. Mohamed', 65000.75,  'Giza, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (4,  'Dr. Mariam',  6350,      'Giza, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (5,  'Dr. Asad',    43230.75,  'Giza, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (6,  'Dr. Mina',    43233,     'Giza, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (7,  'Dr. Amr',     434432,    'Giza, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (8,  'Dr. Youssef', 65043.5,   'Giza, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (9,  'Dr. Mona',    69895.75,  'Giza, Egypt')
+    INTO Doctor (ID, NAME, SALARY, ADDRESS) VALUES (10, 'Dr. Omar',    687230.75, 'Giza, Egypt')
+
+    SELECT * FROM doctor;
+    
+    
+UPDATE DOCTOR d  SET SALARY = 20000 WHERE d.ID =3;
+	
+
+DELETE  FROM DOCTOR D WHERE D.ID = 9;
+
+
+SELECT name || ' - ' || salary AS name_salary FROM DOCTOR d ;
+
+SELECT (SALARY * 2) AS Double_salary FROM DOCTOR d 
+
+SELECT * FROM  DOCTOR d  WHERE d.SALARY IN (1000, 2000, 3000);
+
+RENAME Doctor to PRD_DOCTOR
