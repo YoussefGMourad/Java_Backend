@@ -2,16 +2,19 @@ package vehicle.registration.model;
 
 public class Motorcycle extends Vehicle {
 
-    private  String engineType;
+    private String engineType;
 
-    public Motorcycle (String plateNumber, String ownerName, String vehicleType, int registrationYear, String status ,String engineType) {
+    public Motorcycle(String plateNumber, String ownerName, String vehicleType, int registrationYear, String status, String engineType) {
         super(plateNumber, ownerName, vehicleType, registrationYear, status);
-        this.engineType= engineType;
+        this.engineType = engineType;
     }
+
     @Override
-    public String getRegistrationLabel(){
+    public String getRegistrationLabel() {
         return "Motorcycle — Engine : " + engineType;
-    };
+    }
+
+    ;
 
     @Override
     public String toString() {

@@ -1,6 +1,6 @@
 package vehicle.registration.model;
 
-public class Car extends Vehicle{
+public class Car extends Vehicle {
 
     private int numberOfDoors;
 
