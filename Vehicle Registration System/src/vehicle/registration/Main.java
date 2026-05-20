@@ -27,6 +27,9 @@ public class Main {
             System.out.println("3. Update Owner Name");
             System.out.println("4. Delete Vehicle");
             System.out.println("5. List All Vehicles");
+            System.out.println("6. Search Vehicle by Type");
+            System.out.println("7. Search Vehicle by Owner");
+            System.out.println("8. Search Vehicle by Year");
             System.out.println("0. Exit");
             System.out.println("========================================");
             System.out.print("Enter your choice: ");
@@ -46,15 +49,36 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Update Owner Name");
-                    updateOwner(input,Service);
+                    updateOwner(input, Service);
                     break;
                 case 4:
                     System.out.println("Delete Vehicle");
-                    deleteVehicle(input,Service);
+                    deleteVehicle(input, Service);
                     break;
                 case 5:
                     System.out.println("List All Vehicles");
                     listAllVehicles(Service);
+                    break;
+                case 6:
+                    System.out.println("Enter vehicle type (Car / Truck / Motorcycle): ");
+                    List<Vehicle> results = Service.filterByType(input.next());
+                    if (results.isEmpty()) {
+                        System.out.println("No vehicles found");
+                    } else {
+                        results.forEach(System.out::println);
+                    }
+                    break;
+
+                    // there is some edits in case 6 7 8 so please see them again
+
+
+                case 7:
+                    System.out.println("Enter the owner's name");
+                    Service.getVehiclesByOwner(input.next());
+                    break;
+                case 8:
+                    System.out.println("Enter the car's registration year");
+                    Service.getExpiredRegistrations(input.nextInt());
                     break;
                 case 0:
                     work = false;
@@ -153,8 +177,8 @@ public class Main {
         if (vehicles.isEmpty()) {
             System.out.println("No vehicles registered yet");
         } else {
-            vehicles.stream()
-                    .forEach(System.out::println);
+            vehicles.stream().forEach(System.out::println);
         }
     }
+
 }

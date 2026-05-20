@@ -7,6 +7,7 @@ import vehicle.registration.model.Motorcycle;
 import vehicle.registration.model.Truck;
 import vehicle.registration.model.Vehicle;
 import vehicle.registration.service.RegistrationService;
+import java.util.stream.Collectors;
 
 import java.util.*;
 
@@ -61,6 +62,34 @@ public class RegistrationServiceImplementation implements RegistrationService {
     @Override
     public List<Vehicle> getAllVehicles() {
         return Collections.unmodifiableList(vehicleList);
+    }
+
+
+    @Override
+    public List<Vehicle> filterByType(String type) {
+        return vehicleList.stream().filter(vehicle -> vehicle.getVehicleType().equalsIgnoreCase(type))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Vehicle> getVehiclesByOwner(String ownerName) {
+        return vehicleList.stream().filter(vehicle -> vehicle.getOwnerName().toLowerCase().contains(ownerName.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Vehicle> getExpiredRegistrations(int currentYear) {
+        return vehicleList.stream().filter(vehicle -> vehicle.getRegistrationYear()>5)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Vehicle> getSortedByYear(boolean ascending) {
+        Comparator<Vehicle> comp = Comparator.comparingInt(Vehicle::getRegistrationYear);
+        if (!ascending) comp = comp.reversed();
+        return vehicleList.stream()
+                .sorted(comp)
+                .collect(Collectors.toList());
     }
 }
 
