@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public abstract class Vehicle {
 
-    private String plateNumber;
+    private final String plateNumber;
     private String ownerName;
-    private String vehicleType;
-    private int registrationYear;
+    private final String vehicleType;
+    private final int registrationYear;
     private String status;
 
 
@@ -26,6 +26,7 @@ public abstract class Vehicle {
     public String getOwnerName() {
         return ownerName;
     }
+
     public String getVehicleType() {
         return vehicleType;
     }
@@ -61,13 +62,13 @@ public abstract class Vehicle {
     }
 
 
-
     @Override
-        public String toString() {
-            return "[" + plateNumber + "] | " + vehicleType +
-                    " | Owner: " + ownerName +
-                    " | Year: " + registrationYear +
-                    " | Status: " + status;
-        }
+    public String toString() {
+        return "[" + plateNumber + "] | " + vehicleType +
+                " | Owner: " + ownerName +
+                " | Year: " + registrationYear +
+                " | Status: " + status;
+    }
+
     public abstract String getRegistrationLabel();
 }

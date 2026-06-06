@@ -1,5 +1,6 @@
 package vehicle.registration.model;
 
+
 public class Truck extends Vehicle {
 
     private double cargoCapacityTons;
@@ -8,13 +9,14 @@ public class Truck extends Vehicle {
         super(plateNumber, ownerName, vehicleType, registrationYear, status);
         this.cargoCapacityTons = cargoCapacityTons;
     }
+
     @Override
-    public String getRegistrationLabel(){
+    public String getRegistrationLabel() {
         return "Truck | Capacity : " + cargoCapacityTons;
     }
 
     @Override
     public String toString() {
-        return super.toString() +" | Cargo Capacity in Tons is : " + cargoCapacityTons;
+        return super.toString() + " | Cargo Capacity in Tons is : " + cargoCapacityTons;
     }
 }
